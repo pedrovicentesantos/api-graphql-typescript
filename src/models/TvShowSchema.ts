@@ -15,4 +15,4 @@ const Schema = new mongoose.Schema({
   },
 });
 
-export default mongoose.model('Videos', Schema);
+export default mongoose.model('TvShows', Schema);

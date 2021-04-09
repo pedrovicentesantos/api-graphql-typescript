@@ -1,7 +1,7 @@
 import { Field, ObjectType } from 'type-graphql';
 
 @ObjectType()
-class Video {
+class TvShow {
   @Field()
   name: String;
 
@@ -15,4 +15,4 @@ class Video {
   category: String
 }
 
-export default Video;
+export default TvShow;

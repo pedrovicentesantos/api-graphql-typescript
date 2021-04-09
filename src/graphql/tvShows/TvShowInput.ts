@@ -1,7 +1,7 @@
 import { Field, InputType } from 'type-graphql';
 
 @InputType()
-class VideoInput {
+class TvShowInput {
   @Field()
   description: String;
 
@@ -12,4 +12,4 @@ class VideoInput {
   category: String;
 }
 
-export default VideoInput;
+export default TvShowInput;
