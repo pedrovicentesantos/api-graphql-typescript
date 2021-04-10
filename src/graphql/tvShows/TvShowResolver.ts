@@ -16,6 +16,13 @@ class TvShowResolver {
     return tvShows;
   }
 
+  @Query(() => TvShow || String)
+  async getTvShow(@Arg('id') id: String) {
+    const tvShow = await TvShowSchema.findById(id);
+    if (tvShow) return tvShow;
+    throw new Error('TV Show not found');
+  }
+
   @Mutation(() => TvShow)
   async createTvShow(@Arg('tvShowInput') tvShowInput: TvShowInput) {
     const tvShow = await TvShowSchema.create(tvShowInput);
