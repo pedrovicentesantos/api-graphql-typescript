@@ -16,7 +16,7 @@ class TvShowResolver {
     return tvShows;
   }
 
-  @Query(() => TvShow || String)
+  @Query(() => TvShow)
   async getTvShow(@Arg('id') id: String) {
     const tvShow = await TvShowSchema.findById(id);
     if (tvShow) return tvShow;

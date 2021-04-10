@@ -16,6 +16,13 @@ class CategoryResolver {
     return categories;
   }
 
+  @Query(() => Category)
+  async getCategory(@Arg('id') id: String) {
+    const category = await CategorySchema.findById(id);
+    if (category) return category;
+    throw new Error('Category not found');
+  }
+
   @Mutation(() => Category)
   async createCategory(@Arg('categoryInput') categoryInput: CategoryInput) {
     const category = await CategorySchema.create(categoryInput);
