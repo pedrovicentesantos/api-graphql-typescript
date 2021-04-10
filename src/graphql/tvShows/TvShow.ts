@@ -13,6 +13,9 @@ class TvShow {
 
   @Field()
   category: String
+
+  @Field()
+  rating: Number
 }
 
 export default TvShow;

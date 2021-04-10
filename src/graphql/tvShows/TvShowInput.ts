@@ -10,6 +10,9 @@ class TvShowInput {
 
   @Field()
   category: String;
+
+  @Field()
+  rating: Number;
 }
 
 export default TvShowInput;

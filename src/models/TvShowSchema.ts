@@ -13,6 +13,10 @@ const Schema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Categories',
   },
+  rating: {
+    type: Number,
+    required: true,
+  },
 });
 
 export default mongoose.model('TvShows', Schema);
