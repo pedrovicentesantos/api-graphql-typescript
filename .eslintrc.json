@@ -26,7 +26,7 @@
               "tsx": "never"
             }
         ],
-        "class-methods-use-this": ["error", { "exceptMethods": ["categories", "createCategory", "tvShows", "createTvShow", "getTvShow", "getCategory", "deleteTvShow", "deleteCategory"] }]
+        "class-methods-use-this": ["error", { "exceptMethods": ["categories", "createCategory", "tvShows", "createTvShow", "getTvShow", "getCategory", "deleteTvShow", "deleteCategory", "updateTvShow"] }]
     },
     "settings": {
         "import/resolver": {

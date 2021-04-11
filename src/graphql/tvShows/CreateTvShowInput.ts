@@ -1,7 +1,7 @@
 import { Field, InputType } from 'type-graphql';
 
 @InputType()
-class TvShowInput {
+class CreateTvShowInput {
   @Field()
   description: String;
 
@@ -15,4 +15,4 @@ class TvShowInput {
   rating: Number;
 }
 
-export default TvShowInput;
+export default CreateTvShowInput;
