@@ -1,7 +1,7 @@
 import { Field, InputType } from 'type-graphql';
 
 @InputType()
-class CategoryInput {
+class CreateCategoryInput {
   @Field()
   description: String;
 
@@ -9,4 +9,4 @@ class CategoryInput {
   name: String;
 }
 
-export default CategoryInput;
+export default CreateCategoryInput;

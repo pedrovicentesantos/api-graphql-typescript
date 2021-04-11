@@ -6,7 +6,8 @@ import {
 } from 'type-graphql';
 import Category from './Category';
 import CategorySchema from '../../models/CategorySchema';
-import CategoryInput from './CategoryInput';
+import CreateCategoryInput from './CreateCategoryInput';
+import UpdateCategoryInput from './UpdateCategoryInput';
 
 @Resolver(Category)
 class CategoryResolver {
@@ -24,7 +25,7 @@ class CategoryResolver {
   }
 
   @Mutation(() => Category)
-  async createCategory(@Arg('categoryInput') categoryInput: CategoryInput) {
+  async createCategory(@Arg('categoryInput') categoryInput: CreateCategoryInput) {
     const category = await CategorySchema.create(categoryInput);
     return category;
   }
@@ -34,6 +35,15 @@ class CategoryResolver {
     const category = await CategorySchema.findByIdAndDelete(id);
     if (category) return category;
     throw new Error('Category not found');
+  }
+
+  @Mutation(() => Category)
+  async updateCategory(@Arg('categoryInput') categoryInput: UpdateCategoryInput, @Arg('id') id: String) {
+    const current = await CategorySchema.findById(id);
+    if (!current) throw new Error('Category not found');
+    const update = Object.assign(current, categoryInput);
+    const category = await CategorySchema.findByIdAndUpdate(id, update, { new: true });
+    return category;
   }
 }
 
