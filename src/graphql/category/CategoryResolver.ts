@@ -28,6 +28,13 @@ class CategoryResolver {
     const category = await CategorySchema.create(categoryInput);
     return category;
   }
+
+  @Mutation(() => Category)
+  async deleteCategory(@Arg('id') id:String) {
+    const category = await CategorySchema.findByIdAndDelete(id);
+    if (category) return category;
+    throw new Error('Category not found');
+  }
 }
 
 export default CategoryResolver;

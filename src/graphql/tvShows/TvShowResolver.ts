@@ -28,6 +28,13 @@ class TvShowResolver {
     const tvShow = await TvShowSchema.create(tvShowInput);
     return tvShow;
   }
+
+  @Mutation(() => TvShow)
+  async deleteTvShow(@Arg('id') id:String) {
+    const tvShow = await TvShowSchema.findByIdAndDelete(id);
+    if (tvShow) return tvShow;
+    throw new Error('TV Show not found');
+  }
 }
 
 export default TvShowResolver;
