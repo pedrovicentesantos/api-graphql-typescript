@@ -24,6 +24,16 @@ class TvShowResolver {
     throw new Error('TV Show not found');
   }
 
+  @Query(() => [TvShow])
+  async getTopTvShows(@Arg('count') count: Number) {
+    if (count <= 0) throw new Error('Count should be a positive number');
+    const tvShows = await TvShowSchema
+      .find()
+      .sort('-rating')
+      .limit(count);
+    return tvShows;
+  }
+
   @Mutation(() => TvShow)
   async createTvShow(@Arg('tvShowInput') tvShowInput: CreateTvShowInput) {
     const tvShow = await TvShowSchema.create(tvShowInput);
