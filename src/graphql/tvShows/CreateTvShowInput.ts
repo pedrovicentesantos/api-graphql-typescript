@@ -11,8 +11,8 @@ class CreateTvShowInput {
   @Field()
   category: String;
 
-  @Field()
-  rating: Number;
+  @Field({ nullable: true })
+  rating?: Number;
 }
 
 export default CreateTvShowInput;

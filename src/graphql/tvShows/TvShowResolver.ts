@@ -29,6 +29,7 @@ class TvShowResolver {
     if (count <= 0) throw new Error('Count should be a positive number');
     const tvShows = await TvShowSchema
       .find()
+      .where('rating').ne(null)
       .sort('-rating')
       .limit(count);
     return tvShows;
