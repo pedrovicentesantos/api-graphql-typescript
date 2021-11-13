@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Comedy",
+    "description": "This is the comedy category"
+  },
+  {
+    "name": "Drama",
+    "description": "This is the drama category"
+  },
+  {
+    "name": "Action",
+    "description": "This is the action category"
+  }
+]

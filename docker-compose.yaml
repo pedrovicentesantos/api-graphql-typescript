@@ -7,6 +7,12 @@ services:
     ports:
     - "27017:27017"
 
+  mongo-seed:
+    container_name: mongo_seed
+    build: ./seed
+    links:
+      - mongo
+
   app:
     build: .
     container_name: app
