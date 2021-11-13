@@ -63,6 +63,17 @@ class TvShowResolver {
       .populate('category');
     return tvShow;
   }
+
+  @Mutation(() => TvShowResponse)
+  async favoriteTvShow(@Arg('favorite') favorite: Boolean, @Arg('id') id: String) {
+    const current = await TvShowSchema.findById(id);
+    if (!current) throw new Error('TV Show not found');
+    const update = Object.assign(current, { favorite: favorite });
+    const tvShow = await TvShowSchema
+      .findByIdAndUpdate(id, update, { new: true })
+      .populate('category');
+    return tvShow;
+  }
 }
 
 export default TvShowResolver;

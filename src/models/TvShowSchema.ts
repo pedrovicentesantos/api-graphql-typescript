@@ -17,6 +17,10 @@ const Schema = new mongoose.Schema({
     type: Number,
     required: false,
   },
+  favorite: {
+    type: Boolean,
+    default: false,
+  }
 });
 
 export default mongoose.model('TvShows', Schema);

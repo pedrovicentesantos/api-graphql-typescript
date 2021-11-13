@@ -16,6 +16,9 @@ class TvShow {
 
   @Field({ nullable: true })
   rating?: Number
+
+  @Field({ defaultValue: false })
+  favorite?: Boolean;
 }
 
 export default TvShow;
